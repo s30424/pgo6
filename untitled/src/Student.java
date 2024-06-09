@@ -1,86 +1,140 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class Student {
     private String fname;
     private String lname;
     private String email;
     private String adres;
-    private Date dataurodzenia;
-    private String mobnumber;
-    private String numerS;
-    static ArrayList<Student>students = new ArrayList<Student>();
+    private String phoneNumber;
+    private Date dateOfBirth;
+    private String studentStatus;
+    private String indexNumber;
+    private int currentSemester;
+    private int studentITNnumber;
+    private StudyProgramme currentStudyPrograme;
+public HashMap<Integer, String> grades = new HashMap<>();
 
-    public Student (String fname, String lname, String email, String adres, String mobnumber, Date dataurodzenia){
+    public static ArrayList<Student> students = new ArrayList<Student>();
+
+    public Student(String fname, String lname, String email, String adres, String phoneNumber, Date dateOfBirth) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.adres = adres;
-        this.mobnumber = mobnumber;
-        this.dataurodzenia = dataurodzenia;
-        this.numerS = "s" + students.size();
+        this.phoneNumber = phoneNumber;
+        this.dateOfBirth = dateOfBirth;
+        this.currentSemester = 1;
         Student.students.add(this);
+        this.indexNumber = "s" + students.size();
     }
+
+    public void enrollStudent(StudyProgramme stProgramme){
+        this.currentStudyPrograme = stProgramme;
+        this.studentStatus = "Student";
+    }
+    public void addGrade(int grade, String subject){
+        grades.put(grade, subject);
+    }
+    public void promoteNextSemester(){
+        if (currentSemester < currentStudyPrograme.getSemesterNumber() && studentITNnumber < currentStudyPrograme.getITNnumber()) {
+            if (currentSemester < currentStudyPrograme.getSemesterNumber()) {
+                currentSemester++;
+            } else {
+                studentStatus = "Absolwent";
+            }
+        } else {
+            setCurrentSemester(currentStudyPrograme.getSemesterNumber());
+            setStudentITNnumber(0);
+        }
+}
 
     public String getFname() {
         return fname;
-    }
-
-    public String getLname() {
-        return lname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getAdres() {
-        return adres;
-    }
-
-    public Date getDataurodzenia() {
-        return dataurodzenia;
-    }
-
-    public String getMobnumber() {
-        return mobnumber;
-    }
-
-    public String getNumerS() {
-        return numerS;
-    }
-
-    public void setNumerS(String numerS) {
-        this.numerS = numerS;
     }
 
     public void setFname(String fname) {
         this.fname = fname;
     }
 
+    public String getLname() {
+        return lname;
+    }
+
     public void setLname(String lname) {
         this.lname = lname;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
+    public String getAdres() {
+        return adres;
+    }
+
     public void setAdres(String adres) {
         this.adres = adres;
     }
 
-    public void setDataurodzenia(Date dataurodzenia) {
-        this.dataurodzenia = dataurodzenia;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setMobnumber(String mobnumber) {
-        this.mobnumber = mobnumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public void enrollStudent(StudyProgramme it) {
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void addGrade(int i, String pgo) {
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public int getCurrentSemester() {
+        return currentSemester;
+    }
+
+    public void setCurrentSemester(int currentSemester) {
+        this.currentSemester = currentSemester;
+    }
+
+    public String getStudentStatus() {
+        return studentStatus;
+    }
+
+    public void setStudentStatus(String studentStatus) {
+        this.studentStatus = studentStatus;
+    }
+
+    public String getIndexNumber() {
+        return indexNumber;
+    }
+
+    public void setIndexNumber(String indexNumber) {
+        this.indexNumber = indexNumber;
+    }
+
+    public int getStudentITNnumber() {
+        return studentITNnumber;
+    }
+
+    public void setStudentITNnumber(int studentITNnumber) {
+        this.studentITNnumber = studentITNnumber;
+    }
+
+    public StudyProgramme getCurrentStudyPrograme() {
+        return currentStudyPrograme;
+    }
+
+    public void setCurrentStudyPrograme(StudyProgramme currentStudyPrograme) {
+        this.currentStudyPrograme = currentStudyPrograme;
     }
 }
