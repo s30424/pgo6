@@ -1,45 +1,45 @@
 public class StudyProgramme {
-    private String nazwa;
-    private String suma;
-    private int semestr;
-    private int itn;
-public StudyProgramme(String nazwa, String suma, int semestr, int itn){
-    this.nazwa = nazwa;
-    this.suma = suma;
-    this.semestr = semestr;
-    this.itn = itn;
+    private String studyProgramme;
+    private String studyDescription;
+    private int semesterNumber;
+    private int ITNnumber;
+
+    public StudyProgramme(String studyProgramme, String studyDescription, int semesterNumber, int ITNnumber) {
+        this.studyProgramme = studyProgramme;
+        this.studyDescription = studyDescription;
+        this.semesterNumber = semesterNumber;
+        this.ITNnumber = ITNnumber;
+    }
+
+    public String getStudyProgramme() {
+        return studyProgramme;
+    }
+
+    public void setStudyProgramme(String studyProgramme) {
+        this.studyProgramme = studyProgramme;
+    }
+
+    public String getStudyDescription() {
+        return studyDescription;
+    }
+
+    public void setStudyDescription(String studyDescription) {
+        this.studyDescription = studyDescription;
+    }
+
+    public int getSemesterNumber() {
+        return semesterNumber;
+    }
+
+    public void setSemesterNumber(int semesterNumber) {
+        this.semesterNumber = semesterNumber;
+    }
+
+    public int getITNnumber() {
+        return ITNnumber;
+    }
+
+    public void setITNnumber(int ITNnumber) {
+        this.ITNnumber = ITNnumber;
+    }
 }
-
-    public String getNazwa() {
-        return nazwa;
-    }
-
-    public String getSuma() {
-        return suma;
-    }
-
-    public int getSemestr() {
-        return semestr;
-    }
-
-    public int getItn() {
-        return itn;
-    }
-
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
-    }
-
-    public void setSuma(String suma) {
-        this.suma = suma;
-    }
-
-    public void setSemestr(int semestr) {
-        this.semestr = semestr;
-    }
-
-    public void setItn(int itn) {
-        this.itn = itn;
-    }
-}
-
